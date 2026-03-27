@@ -1,0 +1,49 @@
+# Arquivos de classes e logs
+*.class
+*.log
+
+# Logs de falhas da JVM (JVM crash logs)
+hs_err_pid*
+
+# Arquivos de pacotes (Package Files)
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.versions
+pom.xml.bak
+pom.xml.releaseBackup
+release.properties
+
+# Gradle
+.gradle/
+/build/
+# Evita ignorar o wrapper do Gradle (wrapper jar file)
+!gradle-wrapper.jar
+
+# Configurações de IDEs
+.idea/ # IntelliJ IDEA
+.vscode/ # VS Code (pode ser ajustado)
+.settings/ # Eclipse
+.project # Eclipse
+.classpath # Eclipse
+*.swp
+*.bak
+*.iml # IntelliJ IDEA module files
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Dependências (se não estiver usando um gerenciador de dependências padrão como Maven/Gradle)
+/lib/
+/libs/
+
+# Arquivos temporários do sistema operacional
+.DS_Store # macOS
+Thumbs.db # Windows
+
