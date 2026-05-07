@@ -2,7 +2,7 @@
 SRC := $(shell find src -name "*.java")
 OUT := out
 
-.PHONY: all clean run-atvd1 run-atvd2 run-atvd3 run-atvd4 run-atvd5
+.PHONY: all clean run-Veiculos run-Conversor run-Calculadora run-Pagamento run-Produto
 
 all: $(OUT)
 	@echo "Compilando $(words $(SRC)) arquivo(s)..."
@@ -12,20 +12,20 @@ all: $(OUT)
 $(OUT):
 	mkdir -p $(OUT)
 
-run-atvd1:
-	java -cp out br.edu.fatec.atvd1.view.Atvd1View
+run-Veiculos:
+	java -cp out br.edu.fatec.Veiculos.view.VeiculosView
 
-run-atvd2:
-	java -cp out br.edu.fatec.atvd2.view.Atvd2View
+run-Conversor:
+	java -cp out br.edu.fatec.Conversor.view.ConversorView
 
-run-atvd3:
-	java -cp out br.edu.fatec.atvd3.view.Atvd3View
+run-Calculadora:
+	java -cp out br.edu.fatec.Calculadora.view.CalculadoraView
 
-run-atvd4:
-	java -cp out br.edu.fatec.atvd4.view.Atvd4View
+run-Pagamento:
+	java -cp out br.edu.fatec.Pagamento.view.PagamentoView
 
-run-atvd5:
-	java -cp out br.edu.fatec.atvd5.view.Atvd5View
+run-Produto:
+	java -cp out br.edu.fatec.Produto.view.ProdutoView
 
 clean:
 	rm -rf $(OUT)

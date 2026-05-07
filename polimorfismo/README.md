@@ -5,38 +5,48 @@
 
 ## Domínios
 
-- `atvd1/` → `Atvd1.java` + `Atvd1View.java`
-- `atvd2/` → `Atvd2.java` + `Atvd2View.java`
-- `atvd3/` → `Atvd3.java` + `Atvd3View.java`
-- `atvd4/` → `Atvd4.java` + `Atvd4View.java`
-- `atvd5/` → `Atvd5.java` + `Atvd5View.java`
+| Pasta | Conceito | Classes |
+|-------|----------|---------|
+| `Veiculos/` | Sobrescrita (`@Override`) | `Veiculo`, `Carro`, `Bicicleta` |
+| `Conversor/` | Sobrecarga de métodos | `Conversor` |
+| `Calculadora/` | Sobrecarga de métodos | `Calculadora` |
+| `Pagamento/` | Sobrescrita (`@Override`) | `Pagamento`, `PagamentoBoleto`, `PagamentoCartao` |
+| `Produto/` | Sobrecarga de construtores | `Produto` |
 
 ## Compilar e rodar
 
 ```bash
-make                    # compila tudo
-make run-atvd1          # roda o domínio
+make              # compila tudo
+make run-Veiculos # roda o domínio Veículos
+make run-Conversor
+make run-Calculadora
+make run-Pagamento
+make run-Produto
 ```
 
 ## Estrutura
 
 ```
 src/br/edu/fatec/
-├── atvd1/
-│   ├── model/Atvd1.java
-│   └── view/Atvd1View.java
-├── atvd2/
-│   ├── model/Atvd2.java
-│   └── view/Atvd2View.java
-├── atvd3/
-│   ├── model/Atvd3.java
-│   └── view/Atvd3View.java
-├── atvd4/
-│   ├── model/Atvd4.java
-│   └── view/Atvd4View.java
-├── atvd5/
-│   ├── model/Atvd5.java
-│   └── view/Atvd5View.java
+├── Veiculos/
+│   └── model/
+│       ├── Veiculo.java
+│       ├── Carro.java
+│       └── Bicicleta.java
+├── Conversor/
+│   └── model/
+│       └── Conversor.java
+├── Calculadora/
+│   └── model/
+│       └── Calculadora.java
+├── Pagamento/
+│   └── model/
+│       ├── Pagamento.java
+│       ├── PagamentoBoleto.java
+│       └── PagamentoCartao.java
+├── Produto/
+│   └── model/
+│       └── Produto.java
 ```
 
 ## Boas práticas
