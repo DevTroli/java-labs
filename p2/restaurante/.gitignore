@@ -1,0 +1,13 @@
+# Java bytecode
+out/
+*.class
+
+# IDEs
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# macOS
+.DS_Store
