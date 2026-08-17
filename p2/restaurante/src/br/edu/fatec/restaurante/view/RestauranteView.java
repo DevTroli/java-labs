@@ -1,33 +1,29 @@
 package br.edu.fatec.restaurante.view;
 
 import br.edu.fatec.restaurante.model.Restaurante;
-import java.util.Scanner;
+import br.edu.fatec.pedido.model.Pedido;
+import br.edu.fatec.pedido.model.ItemPedido;
 
-/**
- * View: RestauranteView
- *
- * Boas práticas:
- *  - Contém o main()
- *  - Lê entrada com Scanner
- *  - Imprime com System.out
- *  - NUNCA tem lógica de negócio — delega tudo ao model
- */
 public class RestauranteView {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Restaurante restaurante = new Restaurante();
 
-        // ── Leitura ───────────────────────────────────────────────────────
-        // TODO: leia os dados do usuário
-        // System.out.print("Nome: ");
-        // String nome = sc.nextLine();
+        Pedido pedido1 = new Pedido(1);
+        pedido1.adicionarItem(new ItemPedido("Feijoada", 2, 35.0));
+        pedido1.reservarMesa(5);
 
-        // ── Instancia o model ─────────────────────────────────────────────
-        // Restaurante obj = new Restaurante(/* parâmetros */);
+        Pedido pedido2 = new Pedido(2);
+        pedido2.adicionarItem(new ItemPedido("Pizza", 1, 45.0));
+        pedido2.reservarMesa(3);
 
-        // ── Exibe resultados ──────────────────────────────────────────────
-        // System.out.printf("Resultado: %.2f%n", obj.calcular());
+        restaurante.adicionarPedido(pedido1);
+        restaurante.adicionarPedido(pedido2);
 
-        sc.close();
+        System.out.println("Todos os pedidos:");
+        restaurante.exibirPedidos();
+
+        System.out.println("\nBuscando pedido numero 2:");
+        System.out.println(restaurante.buscarPedido(2));
     }
 }

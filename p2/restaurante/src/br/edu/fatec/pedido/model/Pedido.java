@@ -1,36 +1,56 @@
 package br.edu.fatec.pedido.model;
 
-/**
- * Model: Pedido
- * Domínio: pedido
- *
- * Boas práticas:
- *  - Atributos sempre private (encapsulamento)
- *  - Métodos calculam e RETORNAM — sem System.out aqui
- *  - Construtor inicializa o objeto com dados válidos
- */
+import java.util.ArrayList;
+
 public class Pedido {
+  private static final double TAXA_ENTREGA = 5.0;
 
-    // ── Atributos (private) ───────────────────────────────────────────────
-    // TODO: declare os atributos do domínio
-    // private String nome;
-    // private double valor;
+  private int numero;
+  private ArrayList<ItemPedido> itens;
+  private int mesaReservada;
 
-    // ── Constantes (private static final SNAKE_UPPER) ─────────────────────
-    // private static final double TAXA = 0.10;
+  public Pedido(int numero) {
+    this.numero = numero;
+    this.itens = new ArrayList<>();
+    this.mesaReservada = 0;
+  }
 
-    // ── Construtor ────────────────────────────────────────────────────────
-    public Pedido(/* TODO: parâmetros */) {
-        // this.nome = nome;
+  public int getNumero() {
+    return numero;
+  }
+
+  public ArrayList<ItemPedido> getItens() {
+    return itens;
+  }
+
+  public void adicionarItem(ItemPedido item) {
+    itens.add(item);
+  }
+
+  public void removerItem(ItemPedido item) {
+    itens.remove(item);
+  }
+
+  public void reservarMesa(int numeroMesa) {
+    this.mesaReservada = numeroMesa;
+    System.out.println("Mesa " + numeroMesa + " reservada para o pedido " + numero);
+  }
+
+  public double calcularTotalPedido() {
+    double total = 0;
+    for (ItemPedido item : itens) {
+      total += item.calcularSubtotal();
     }
+    return total + TAXA_ENTREGA;
+  }
 
-    // ── Métodos de negócio ────────────────────────────────────────────────
-    // Retorne valores — a view imprime, o model calcula.
-    // public double calcular() {
-    //     return 0.0;
-    // }
-
-    // ── Getters ───────────────────────────────────────────────────────────
-    // public String getNome() { return nome; }
-
+  @Override
+  public String toString() {
+    return "Pedido "
+        + numero
+        + " | Mesa: "
+        + mesaReservada
+        + " | Total: R$ "
+        + calcularTotalPedido();
+  }
 }

@@ -1,36 +1,39 @@
 package br.edu.fatec.restaurante.model;
 
-/**
- * Model: Restaurante
- * Domínio: restaurante
- *
- * Boas práticas:
- *  - Atributos sempre private (encapsulamento)
- *  - Métodos calculam e RETORNAM — sem System.out aqui
- *  - Construtor inicializa o objeto com dados válidos
- */
+import br.edu.fatec.pedido.model.Pedido;
+import java.util.ArrayList;
+
 public class Restaurante {
+  private ArrayList<Pedido> pedidos;
 
-    // ── Atributos (private) ───────────────────────────────────────────────
-    // TODO: declare os atributos do domínio
-    // private String nome;
-    // private double valor;
+  public Restaurante() {
+    this.pedidos = new ArrayList<>();
+  }
 
-    // ── Constantes (private static final SNAKE_UPPER) ─────────────────────
-    // private static final double TAXA = 0.10;
+  public void adicionarPedido(Pedido pedido) {
+    pedidos.add(pedido);
+  }
 
-    // ── Construtor ────────────────────────────────────────────────────────
-    public Restaurante(/* TODO: parâmetros */) {
-        // this.nome = nome;
+  public void removerPedido(Pedido pedido) {
+    pedidos.remove(pedido);
+  }
+
+  public Pedido buscarPedido(int numero) {
+    for (Pedido pedido : pedidos) {
+      if (pedido.getNumero() == numero) {
+        return pedido;
+      }
     }
+    return null;
+  }
 
-    // ── Métodos de negócio ────────────────────────────────────────────────
-    // Retorne valores — a view imprime, o model calcula.
-    // public double calcular() {
-    //     return 0.0;
-    // }
-
-    // ── Getters ───────────────────────────────────────────────────────────
-    // public String getNome() { return nome; }
-
+  public void exibirPedidos() {
+    if (pedidos.isEmpty()) {
+      System.out.println("Nenhum pedido realizado.");
+      return;
+    }
+    for (Pedido pedido : pedidos) {
+      System.out.println(pedido);
+    }
+  }
 }
